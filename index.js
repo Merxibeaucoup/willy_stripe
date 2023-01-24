@@ -54,4 +54,6 @@ app.post("/checkout", async (req, res) => {
     .catch((err) => console.log(err));
 });
 
-app.listen(8282, () => console.log("LISTENING AT PORT 8282"));
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}...`));
