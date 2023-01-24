@@ -1,0 +1,25 @@
+{
+  "name": "stripebackend",
+  "version": "1.0.0",
+  "description": "backend for stripe",
+  "main": "  index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "edgar briandt",
+  "license": "ISC",
+  "dependencies": {
+    "@types/uuid": "^9.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "react-router-dom": "^6.6.2",
+    "stripe": "^9.13.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13"
+  }
+}
