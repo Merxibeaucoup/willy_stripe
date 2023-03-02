@@ -34,6 +34,9 @@ app.post("/checkout", async (req, res) => {
     mode: "payment",
   });
 
+  // latest
+  res.json({ url: session.url });
+
   return stripe.customers
     .create({
       email: token.email,
