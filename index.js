@@ -1,4 +1,3 @@
-const cors = require("cors");
 const express = require("express");
 
 require("dotenv").config();
@@ -11,6 +10,15 @@ const app = express();
 //middleware
 app.use(express.json());
 app.use(cors());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 //routes
 app.get("/", (req, res) => {
@@ -34,9 +42,6 @@ app.post("/checkout", async (req, res) => {
     mode: "payment",
   });
 
-  // latest
-  res.json({ url: session.url });
-
   return stripe.customers
     .create({
       email: token.email,
@@ -52,6 +57,8 @@ app.post("/checkout", async (req, res) => {
         },
         { idempotencyKey: idempotencyKey }
       );
+      // latest
+      res.json({ url: session.url });
     })
     .then((result) => res.status(200).json(result))
     .catch((err) => console.log(err));
