@@ -117,8 +117,8 @@ app.post("/checkout", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `${process.env.CLIENT_URL || "http://localhost:3000"}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.CLIENT_URL || "http://localhost:3000"}/donate`,
+      success_url: `${process.env.CLIENT_URL || "https://www.wbhelpinghands.com"}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.CLIENT_URL || "https://www.wbhelpinghands.com"}/donate`,
     })
 
     // Return the session URL to redirect to
